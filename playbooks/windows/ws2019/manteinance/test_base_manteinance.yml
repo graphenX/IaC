@@ -1,0 +1,10 @@
+---
+
+- name: "[*] - WINDOWS HOSTS MANTEINANCE - [*]"
+  hosts: WS2019
+  gather_facts: yes
+
+  tasks:
+
+   - import_tasks: ~/.ansible/tasks/ws2019/memory_usage.yml
+

@@ -1,0 +1,30 @@
+- name: Remove log file if present
+  ansible.windows.win_file:
+    path: C:\Users\Administrator\Documents\Logs\WU_update.log
+    state: absent
+
+- name: Create directory structure to store update log files
+  ansible.windows.win_file:
+    path: C:\Users\Administrator\Documents\Logs
+    state: directory
+
+- name: Search for available updates and log to file
+  ansible.windows.win_updates:
+   category_names: "*"
+   state: searched
+   log_path: C:\Users\Administrator\Documents\Logs\WU_update.log
+   
+- name: Copy updates log file to ansible host
+  ansible.builtin.fetch:
+   src: C:/Users/Administrator/Documents/Logs/WU_update.log
+   dest: ~/.ansible/logs/ws2019/
+   flat: yes
+
+- name: Install all updates and reboot as many times as needed
+  ansible.windows.win_updates:
+   category_names: '*'
+   state: installed
+   reboot: yes
+  loop:
+   - 1
+   - 2

@@ -1,0 +1,6 @@
+- name: 'Check free space in C:'
+  ansible.windows.win_shell: 'Get-PSDrive C | Select-Object Free | ft -HideTableHeaders'
+
+- name: 'Check free space in D:'
+  ansible.windows.win_shell: 'Get-PSDrive D | Select-Object Free | ft -HideTableHeaders'
+

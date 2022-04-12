@@ -1,0 +1,8 @@
+---
+
+- name: "[*] - ZABBIX SERVER DEPLOYMENT - [*]"
+  hosts: ZABBIXT
+  gather_facts: true
+
+  tasks:
+

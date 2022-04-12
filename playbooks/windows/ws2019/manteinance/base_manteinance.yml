@@ -1,0 +1,29 @@
+---
+
+- name: "[*] - WINDOWS HOSTS MANTEINANCE - [*]"
+  hosts: WS2019
+  gather_facts: true
+
+  tasks:
+
+  - name: Ping
+    ansible.windows.win_ping:
+
+  - name: Get whoami information
+    ansible.windows.win_whoami:
+
+  - name: get disk physical_disk and partition facts on the target
+    community.windows.win_disk_facts:
+     filter:
+      - volumes
+
+  - name: 'Check free space in C:'
+    win_shell: 'Get-PSDrive C | Select-Object Free | ft -HideTableHeaders'
+
+  - import_tasks: ~/.ansible/tasks/ws2019/wu_log_update.yml
+
+  - import_tasks: ~/.ansible/tasks/ws2019/event_log.yml
+
+  - import_tasks: ~/.ansible/tasks/ws2019/disk_usage.yml
+
+  - import_tasks: ~/.ansible/tasks/ws2019/memory_usage.yml
