@@ -1,0 +1,16 @@
+- name: Allow HTTP service
+  ansible.posix.firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+
+- name: Allow traffic 10050/tcp
+  ansible.posix.firewalld:
+    port: 10050/tcp
+    permanent: yes
+    state: enabled
+
+- name: Reload firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: reloaded
