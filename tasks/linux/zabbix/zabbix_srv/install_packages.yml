@@ -1,0 +1,12 @@
+- name: Install packages from PostgreSQL/Zabbix repository
+  ansible.builtin.dnf:
+   name:
+    - postgresql14-server
+    - zabbix-server-pgsql
+    - zabbix-web-pgsql
+    - zabbix-apache-conf
+    - zabbix-sql-scripts
+    - zabbix-agent
+   state: latest
+    
+

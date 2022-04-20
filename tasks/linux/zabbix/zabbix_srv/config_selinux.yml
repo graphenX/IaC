@@ -1,0 +1,12 @@
+- name: Config SELinux to allow httpd_can_network_connect
+  ansible.posix.seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+
+- name: Config SeLinux to allow zabbix_can_network
+  ansible.posix.seboolean:
+    name: zabbix_can_network
+    state: yes
+    persistent: yes
+

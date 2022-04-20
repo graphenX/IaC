@@ -3,7 +3,6 @@
 - name: "[*] - BASIC LINUX CONFIG - [*]"
   hosts: ZABBIXT
   become: yes
-  
   gather_facts: true
 
   tasks:

@@ -7,4 +7,4 @@
 
   tasks:
 
-  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/add_repos.yml
+  - import_tasks:
