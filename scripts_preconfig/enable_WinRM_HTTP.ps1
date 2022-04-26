@@ -18,7 +18,7 @@ Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true
 
 # Allow WinRM unencrypted
 
-Set-Item -Path WSMan:\localhost\Client\AllowUnencrypted -Value $true
+Set-Item -Path WSMan:\localhost\Service\AllowUnencrypted -Value $true
 
 # Create user
 
