@@ -1,10 +1,10 @@
 ---
 
 - name: "[*] - ZABBIX SERVER DEPLOYMENT - [*]"
-  hosts: ZABBIXT_TEST
+  hosts: ZABBIX_IaC
   become: yes
   gather_facts: true
 
   tasks:
 
-  - import_tasks:
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/config_zabbixservices.yml

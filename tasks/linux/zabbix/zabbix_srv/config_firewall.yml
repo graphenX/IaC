@@ -9,8 +9,3 @@
     port: 10050/tcp
     permanent: yes
     state: enabled
-
-- name: Reload firewalld
-  ansible.builtin.service:
-    name: firewalld
-    state: reloaded

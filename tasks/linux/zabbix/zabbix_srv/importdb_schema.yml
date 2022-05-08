@@ -1,0 +1,8 @@
+- name: Export server.sql.gz to server.sql
+  ansible.builtin.shell: 'zcat "/usr/share/doc/zabbix-sql-scripts/postgresql/server.sql.gz" > "/usr/share/doc/zabbix-sql-scripts/postgresql/server.sql"'
+  args:
+   creates: "/usr/share/doc/zabbix-sql-scripts/postgresql/server.sql"
+
+- name: Import DDBB schema
+  ansible.builtin.shell: 'cat /usr/share/doc/zabbix-sql-scripts/postgresql/server.sql | psql zabbix'
+  become: no

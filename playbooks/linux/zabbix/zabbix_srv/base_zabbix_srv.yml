@@ -1,10 +1,33 @@
 ---
 
 - name: "[*] - ZABBIX SERVER DEPLOYMENT - [*]"
-  hosts: ZABBIXT_TEST
+  hosts: ZABBIX_IaC
   become: yes
   gather_facts: true
 
   tasks:
 
-  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/add_repos.yml
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/add_psqlrepo.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/add_zabbixrepo.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/config_firewall.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/config_selinux.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/install_packages.yml
+    
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/add_psql2path.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/config_services.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/create_dbuser.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/create_database.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/importdb_schema.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/set_dbpassword.yml
+
+  - import_tasks: ~/.ansible/tasks/linux/zabbix/zabbix_srv/config_zabbixservices.yml
+

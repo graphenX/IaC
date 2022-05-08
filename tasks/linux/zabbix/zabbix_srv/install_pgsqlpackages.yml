@@ -1,0 +1,7 @@
+- name: Install PostgreSQL pyscopg2 library
+  ansible.builtin.pip:
+   name:
+    - libpython
+    - psycopg2
+   executable: pip3.9
+  become: no

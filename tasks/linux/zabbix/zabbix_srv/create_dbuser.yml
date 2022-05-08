@@ -1,0 +1,8 @@
+#- name: Connect to acme database, create django user, and grant Create ZABBIX database
+#    name: zabbix
+#    password: password
+#    priv: "CONNECT/products:ALL"
+#    expires: 'infinity'
+#
+- name: Create ZABBIX database
+  ansible.builtin.command: 'sudo -u postgres createuser --pwprompt zabbix'

@@ -1,0 +1,6 @@
+#- name: Create zabbix DB
+#  community.postgresql.postgresql_db:
+#    name: zabbix
+
+- name: Create zabbix DB
+  ansible.builtin.command: 'sudo -u postgres createdb -O zabbix zabbix'

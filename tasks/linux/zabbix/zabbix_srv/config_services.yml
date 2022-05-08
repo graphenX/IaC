@@ -1,0 +1,20 @@
+- name: Register postgresql service
+  ansible.builtin.command: '/usr/pgsql-14/bin/postgresql-14-setup initdb'
+
+- name: Start and enable postgresql service
+  ansible.builtin.service:
+    name: postgresql-14
+    state: started
+    enabled: yes
+
+- name: Reload firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: reloaded
+    enabled: yes
+
+- name: Reload httpd
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: yes

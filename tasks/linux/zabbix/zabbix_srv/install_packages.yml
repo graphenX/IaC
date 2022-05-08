@@ -7,6 +7,9 @@
     - zabbix-apache-conf
     - zabbix-sql-scripts
     - zabbix-agent
+    - python39
+    - python3-devel
+    - libpq-devel
+    - gcc
    state: latest
-    
 

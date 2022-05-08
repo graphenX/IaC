@@ -1,3 +1,13 @@
+- name: Install policycoreutils-python-utils
+  ansible.builtin.dnf:
+    name: policycoreutils-python-utils
+    state: latest
+
+- name: Install semanage python library
+  ansible.builtin.dnf:
+    name: libsemanage
+    state: latest
+
 - name: Config SELinux to allow httpd_can_network_connect
   ansible.posix.seboolean:
     name: httpd_can_network_connect
