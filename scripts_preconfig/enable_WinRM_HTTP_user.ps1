@@ -20,6 +20,20 @@ Set-Item -Path WSMan:\localhost\Service\Auth\Basic -Value $true
 
 Set-Item -Path WSMan:\localhost\Service\AllowUnencrypted -Value $true
 
+# Create user
+
+$testUserAccountName = <'username'>
+$testUserAccountPassword = (ConvertTo-SecureString -String <'password'> -AsPlainText -Force)
+if (-not (Get-LocalUser -Name $testUserAccountName -ErrorAction Ignore)) {
+    $newUserParams = @{
+        Name                 = $testUserAccountName
+        AccountNeverExpires  = $true
+        PasswordNeverExpires = $true
+        Password             = $testUserAccountPassword
+    }
+    $null = New-LocalUser @newUserParams
+}
+
 # Configure WinRM listener
 
 ## Find all HTTPS listners
@@ -68,4 +82,10 @@ $null = New-ItemProperty @newItemParams
      $null = New-NetFirewallRule @newRuleParams
  }
  #endregion
+
+# Add user to administrators group
+
+## Add the local user to the administrators group. If this step isn't doing, Ansible sees an "AccessDenied" error
+Get-LocalUser -Name $testUserAccountName | Add-LocalGroupMember -Group 'Administrators'
+
 
