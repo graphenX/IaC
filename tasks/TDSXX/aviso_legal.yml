@@ -1,0 +1,9 @@
+- name: Copy aviso_legal.vbs
+  ansible.windows.win_copy:
+   src: ~/tasks/WS/tdsxx/InstalarAvisoLegal.vbs
+   dest: C:\INSTALACION_TMP\InstalarAvisoLegal.vbs
+
+- name: Instalar aviso legal
+  ansible.windows.win_powershell:
+   script: |
+    C:\INSTALACION_TMP\InstalarAvisoLegal.vbs

@@ -1,0 +1,13 @@
+- name: Install Windows Server IIS features
+  ansible.windows.win_feature:
+   name: Web-Server
+   state: present
+   include_sub_features: yes
+   include_management_tools: yes
+  register: win_feature
+
+- name: Install Windows Server WCF Services features
+  ansible.windows.win_feature:
+   name: NET-WCF-Services45
+   include_sub_features: yes
+   state: present

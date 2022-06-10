@@ -1,0 +1,4 @@
+- name: Delete INSTALACION_TMP
+  ansible.windows.win_file:
+   path: C:\INSTALACION_TMP
+   state: absent

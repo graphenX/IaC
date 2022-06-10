@@ -1,0 +1,10 @@
+- name: Install default packages
+  chocolatey.chocolatey.win_chocolatey:
+   name: "{{ def_packages }}"
+   state: latest
+   force: yes
+  register: packageinstall
+
+- name: Reboot after packages installation if required
+  ansible.windows.win_reboot:
+  when: packageinstall.changed == true and packageinstall.rc == 3010

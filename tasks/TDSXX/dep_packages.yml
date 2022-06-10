@@ -1,0 +1,20 @@
+- name: Install department packages
+  chocolatey.chocolatey.win_chocolatey:
+   name: "{{ dev_packages }}"
+   state: latest
+
+- name: Transfer Proneta portable
+  ansible.windows.win_copy:
+   src: ~/tasks/WS/tdsxx/proneta_3_1_0_2.7z
+   dest: C:\INSTALACION_TMP\proneta_3_1_0_2.7z
+
+- name: Unzip transfered files
+  ansible.windows.win_powershell:
+   script: |
+    7z.exe x C:\INSTALACION_TMP\proneta_3_1_0_2.7z -o"E:\03 SOFTWARE"
+
+- name: Install FortiVPN from apache server
+  ansible.windows.win_package:
+   path: http://{{ ansible_ipaddress }}:8000/ForticlientVPNSetup_6.4.1.1519_x64.exe
+   arguments: /quiet /forcerestart
+   expected_return_code: [1641, 0, 3010]

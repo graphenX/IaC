@@ -1,0 +1,28 @@
+---
+- hosts: WS2019T
+
+  tasks:
+
+   - name: Ping hosts
+     ansible.windows.win_ping:
+
+   - import_tasks: ~/tasks/WS/general/ws_update.yml
+
+   - import_tasks: ~/tasks/WS/general/change_hostname.yml
+
+   - import_tasks: ~/tasks/WS/devtest/ws_featandserv.yml
+
+   - import_tasks: ~/tasks/WS/devtest/ws_services.yml
+
+   - import_tasks: ~/tasks/WS/devtest/pre_packages.yml
+
+   - import_tasks: ~/tasks/WS/devtest/disable_firewall.yml
+
+   - import_tasks: ~/tasks/WS/general/power_plan.yml
+
+   - import_tasks: ~/tasks/WS/general/enable_rdp.yml
+
+   - import_tasks: ~/tasks/WS/devtest/ms_sql.yml
+
+# find a way to import reboot task in others
+

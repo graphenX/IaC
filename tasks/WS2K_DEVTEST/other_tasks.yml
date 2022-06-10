@@ -1,0 +1,22 @@
+- name: Install SqlServer-Powershell extension
+  ansible.windows.win_powershell:
+   script: |
+    Install-Module -Name SqlServer -AllowClobber
+
+- name: Test connectivity
+  community.general.mssql_script:
+   login_user: ansible
+   login_password: P@ssword0
+   login_host: WIN-123
+   login_port: 1443
+   db: SQLEXPRESS
+   script: "SELECT 1"
+
+- name: Test connectivity
+  ansible.windows.win_powershell:
+   script: |
+     $User = "hmi"
+     $PWord = ConvertTo-SecureString -String "hmi"-AsPlainText -Force
+     $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $PWord
+     Add-SqlLogin -ServerInstance WIN-123\SQLEXPRESS -LoginType SqlLogin -LoginName hmi -LoginPSCredential $Credential -Enable -GrantConnectSql
+

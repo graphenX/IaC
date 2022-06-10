@@ -1,0 +1,4 @@
+- name: Install Office
+  chocolatey.chocolatey.win_chocolatey:
+  name: "{{ office_package }}"
+  state: latest

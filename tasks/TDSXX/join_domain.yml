@@ -1,0 +1,14 @@
+- name: Join internal.tecdesoft.es domain
+  ansible.windows.win_domain_membership:
+   dns_domain_name: internal.tecdesoft.es
+   hostname: "{{ new_hostname }}"
+   domain_admin_user: "{{ domain_admin_account }}"
+   domain_admin_password: "{{ domain_admin_pwd }}"
+   domain_ou_path: "OU={{ dc_group }},DC=internal,DC=tecdesoft,DC=es"
+   state: domain
+   force_replace_host: false
+  register: domain_state
+
+- name: Reboot after join domain
+  ansible.windows.win_reboot:
+  when: domain_state.reboot_required

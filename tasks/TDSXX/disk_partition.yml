@@ -1,0 +1,38 @@
+- name: Get disk facts
+  community.windows.win_disk_facts:
+
+- name: Get partition percentage
+  debug:
+    msg: '{{ disksize_gib }}'
+  vars:
+    # Get first system disk
+    disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
+
+    # Show disk size in Gibibytes
+    disksize_gib: '{{ (disk.size/4*3/1024|pow(3))|round|int }} GiB'
+
+- name: Perform partitions if there's only one disk
+  community.windows.win_partition:
+   drive_letter: E
+   parition_size: '{{ disksize_gib }}'
+   disk_number: 1
+  when: ansible_facts.disks[1] == "VARIABLE IS NOT DEFINED!"
+
+- name: Enable second disk if exists
+  community.windows.win_initialize_disk:
+   style: gpt
+   disk_number: 1
+  when: ansible_facts.disks[1] != "VARIABLE IS NOT DEFINED!"
+
+- name: Create volume on second disk
+  community.windows.win_partition:
+   drive_letter: E
+   partition_size: -1
+   disk_number: 1
+  when: ansible_facts.disks[1] != "VARIABLE IS NOT DEFINED!"
+
+- name: Set disk format on new volume
+  community.windows.win_format:
+   drive_letter: E
+   file_system: NTFS
+   new_label: DATOS

@@ -1,0 +1,6 @@
+- name: Convierte a usuario del dominio en administrator del pc
+  ansible.windows.win_group_membership:
+    name: Administradores
+    members:
+      - "{{ dc_user }}"
+    state: present

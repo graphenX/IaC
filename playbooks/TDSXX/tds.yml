@@ -1,0 +1,31 @@
+---
+- hosts: TDSXX
+
+  tasks:
+
+   - name: Ping hosts
+     ansible.windows.win_ping:
+
+   - import_tasks: ~/tasks/WS/general/ws_update.yml
+
+   - import_tasks: ~/tasks/WS/general/change_hostname.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/disable_ipv6.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/join_domain.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/domainuser_admin.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/disk_partition.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/create_folders.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/def_packages.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/dep_packages.yml
+
+#   - import_tasks: ~/tasks/WS/general/power_plan.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/aviso_legal.yml
+
+   - import_tasks: ~/tasks/WS/tdsxx/delete_installfolder.yml

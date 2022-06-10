@@ -1,0 +1,8 @@
+- name: Disable completely Windows firewall
+  community.windows.win_firewall:
+   state: disabled
+   profiles:
+    - Domain
+    - Private
+    - Public
+  tags: disable_firewall

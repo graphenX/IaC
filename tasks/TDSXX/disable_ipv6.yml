@@ -1,0 +1,5 @@
+- name: Disable IPv6 on all interfaces
+  community.windows.win_net_adapter_feature:
+   interface: '*'
+   component_id:
+    - ms_tcpip6

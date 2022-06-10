@@ -1,0 +1,11 @@
+- name: Install MS SQL Server Express 2017
+  chocolatey.chocolatey.win_chocolatey:
+   name: sql-server-2017
+   version: '14.0.1000'
+   state: present
+
+- name: Install SQL Server Management Studio
+  chocolatey.chocolatey.win_chocolatey:
+   name: sql-server-management-studio
+   version: '15.0.18390.0'
+   state: present

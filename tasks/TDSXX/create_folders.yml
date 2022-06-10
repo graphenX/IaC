@@ -1,0 +1,5 @@
+- name: Create basic folders
+  ansible.windows.win_file:
+   path: "{{ item }}"
+   state: directory
+  loop: "{{ basic_folders }}"
