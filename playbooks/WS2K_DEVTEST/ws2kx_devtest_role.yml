@@ -1,0 +1,4 @@
+---
+- hosts: WS2K_DEVTEST
+  roles:
+   - role: '~/IaC/playbooks/roles/WS2K_DEVTEST/'

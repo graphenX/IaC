@@ -10,6 +10,10 @@
 
    - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/change_hostname.yml
 
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/disk_partition.yml
+
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/disable_ipv6.yml
+
    - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_featandserv.yml
 
    - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_services.yml
