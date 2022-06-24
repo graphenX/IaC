@@ -1,28 +1,28 @@
 ---
-- hosts: WS2019T
+- hosts: WS2K_DEVTEST
 
   tasks:
 
    - name: Ping hosts
      ansible.windows.win_ping:
 
-   - import_tasks: ~/tasks/WS/general/ws_update.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_update.yml
 
-   - import_tasks: ~/tasks/WS/general/change_hostname.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/change_hostname.yml
 
-   - import_tasks: ~/tasks/WS/devtest/ws_featandserv.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_featandserv.yml
 
-   - import_tasks: ~/tasks/WS/devtest/ws_services.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_services.yml
 
-   - import_tasks: ~/tasks/WS/devtest/pre_packages.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/pre_packages.yml
 
-   - import_tasks: ~/tasks/WS/devtest/disable_firewall.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/disable_firewall.yml
 
-   - import_tasks: ~/tasks/WS/general/power_plan.yml
+#   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/power_plan.yml
 
-   - import_tasks: ~/tasks/WS/general/enable_rdp.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/enable_rdp.yml
 
-   - import_tasks: ~/tasks/WS/devtest/ms_sql.yml
+   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ms_sql.yml
 
 # find a way to import reboot task in others
 
