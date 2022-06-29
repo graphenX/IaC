@@ -1,3 +1,0 @@
-- name: Get Windows critical event logs
-  ansible.windows.win_shell: |
-     echo 'Get-WinEvent -FilterHashTable @{LogName = "Application", "System"; Level=1; StartTime=((Get-Date).AddDays(-60))}' | powershell

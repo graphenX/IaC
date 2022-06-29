@@ -1,0 +1,43 @@
+- name: Create ansible user
+  ansible.builtin.user:
+   name: "{{ new_user }}"
+   password: "{{ def_pass }}"
+   groups: wheel
+   append: yes
+   shell: /bin/bash
+     
+- name: Disable SSH password authentication
+  ansible.builtin.lineinfile:
+   dest: /etc/ssh/sshd_config
+   regexp: "^PasswordAuthentication yes"
+   line: "PasswordAuthentication no"
+  register: sshd_config
+
+- name: Restart SSH daemon if config changed
+  ansible.builtin.service:
+   name: sshd
+   state: restarted
+  when: sshd_config.changed
+    
+- name: Update RedHat Family OS
+  ansible.builtin.dnf:
+   name: "*"
+   state: latest
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Update Debian Family OS
+  ansible.builtin.apt:
+   name: "*"
+   state: latest
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Ping host
+  ansible.builtin.ping:
+
+- name: Enable passwordless sudo
+  ansible.builtin.lineinfile:
+   dest: /etc/sudoers
+   regexp: "^%wheel"
+   line: "ansible ALL=(ALL) NOPASSWD: ALL"
+   validate: "/usr/sbin/visudo -cf %s"
+

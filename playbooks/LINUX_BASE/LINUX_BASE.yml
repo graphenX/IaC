@@ -1,0 +1,19 @@
+---
+
+- name: "[*] - BASIC LINUX CONFIG - [*]"
+  hosts: LINUX_HOST
+  become: yes
+  gather_facts: true
+
+  tasks:
+
+  - import_tasks: $ANSIBLE_PATH/tasks/LINUX_BASE/ping_host.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/LINUX_BASE/os_update.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/LINUX_BASE/new_user.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/LINUX_BASE/sudoer_nopwd.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/LINUX_BASE/nossh_passwd.yml
+    
