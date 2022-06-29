@@ -6,26 +6,26 @@
    - name: Ping hosts
      ansible.windows.win_ping:
 
-   - import_tasks: ~/IaC/tasks/general/ws_update.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/general/ws_update.yml
 
-   - import_tasks: ~/IaC/tasks/general/change_hostname.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/general/change_hostname.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/disable_ipv6.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/disable_ipv6.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/join_domain.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/join_domain.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/domainuser_admin.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/domainuser_admin.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/disk_partition.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/disk_partition.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/create_folders.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/create_folders.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/def_packages.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/def_packages.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/dep_packages.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/dep_packages.yml
 
-#   - import_tasks: ~/IaC/tasks/general/power_plan.yml
+#   - import_tasks: $ANSIBLE_PATH/tasks/general/power_plan.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/aviso_legal.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/aviso_legal.yml
 
-   - import_tasks: ~/IaC/tasks/TDSXX/delete_installfolder.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/TDSXX/delete_installfolder.yml

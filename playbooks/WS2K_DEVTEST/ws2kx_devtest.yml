@@ -6,27 +6,27 @@
    - name: Ping hosts
      ansible.windows.win_ping:
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_update.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/ws_update.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/change_hostname.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/change_hostname.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/disk_partition.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/disk_partition.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/disable_ipv6.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/disable_ipv6.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_featandserv.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/ws_featandserv.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ws_services.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/ws_services.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/pre_packages.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/pre_packages.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/disable_firewall.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/disable_firewall.yml
 
-#   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/power_plan.yml
+#   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/power_plan.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/enable_rdp.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/enable_rdp.yml
 
-   - import_tasks: ~/IaC/tasks/WS2K_DEVTEST/ms_sql.yml
+   - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/ms_sql.yml
 
 # find a way to import reboot task in others
 
