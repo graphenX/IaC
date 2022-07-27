@@ -1,0 +1,14 @@
+new_hostname: WS2K-DEVTEST
+
+required_packages:
+ - vmware-tools
+ - googlechrome
+ - sql2014.clrtypes
+ - sql2016-clrtypes
+ - ms-reportviewer2015
+ - opc-components
+ - python
+ - sqlserver-cmdlineutils
+ - sqlserver-odbcdriver
+ - pspad
+ - notepadplusplus

@@ -1,4 +1,0 @@
----
-- hosts: WS2K_DEVTEST
-  roles:
-   - role: '$ANSIBLE_PATH/playbooks/roles/WS2K_DEVTEST/'

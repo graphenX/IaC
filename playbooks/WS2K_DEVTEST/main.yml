@@ -1,11 +1,17 @@
 ---
 - hosts: WS2K_DEVTEST
 
-  tasks:
+  vars_files:
+    -vars.yml
 
+#  roles:
+#    - <role>
+
+  pre_tasks:
    - name: Ping hosts
      ansible.windows.win_ping:
 
+  tasks:
    - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/ws_update.yml
 
    - import_tasks: $ANSIBLE_PATH/tasks/WS2K_DEVTEST/change_hostname.yml
@@ -30,3 +36,5 @@
 
 # find a way to import reboot task in others
 
+#  post-tasks:
+#    - disable WinRM
