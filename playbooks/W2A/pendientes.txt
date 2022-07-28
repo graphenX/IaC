@@ -1,0 +1,3 @@
+- transferir de manera automatizada SSH keys
+- desactivar root login
+

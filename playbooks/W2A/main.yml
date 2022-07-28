@@ -1,0 +1,23 @@
+---
+- name: "[*] - BASIC LINUX CONFIG - [*]"
+
+  hosts: LINUX
+  become: yes
+  gather_facts: true
+
+  vars_files:
+    - vars.yml
+
+  pre_tasks:
+    - name: Ping host
+      ansible.builtin.ping:
+
+  tasks:
+  - import_tasks: $ANSIBLE_PATH/tasks/W2A/os_update.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/W2A/new_user.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/W2A/sudoer_nopwd.yml
+
+  - import_tasks: $ANSIBLE_PATH/tasks/W2A/nossh_passwd.yml
+    

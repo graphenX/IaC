@@ -1,3 +1,4 @@
+# IP of the HTTP server where files are located
 ansible_ipaddress: <IP>
 
 # Domain credentials
