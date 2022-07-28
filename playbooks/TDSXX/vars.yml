@@ -1,0 +1,64 @@
+ansible_ipaddress: <IP>
+
+# Domain credentials
+new_hostname: <hostname>
+domain_admin_account: <user>@<domain>
+domain_admin_pwd: <secretpassword> 
+
+# User to promote as local admin
+dc_user: <user>
+
+# Group to join as the computer (def: Computers)
+dc_group: <group>
+
+# Packages to install
+def_packages:
+ - 7zip.install
+ - googlechrome
+ - firefox
+ - adobereader
+ - tortoisesvn
+ - vmware-workstation-player
+ - winpcap
+ - wireshark
+ - pspad
+ - virtualclonedrive
+ - teamviewer
+ - imgburn
+ - lastpass
+ - microsoft-teams.install
+
+sist_packages:
+ - wireshark
+
+aut_packages:
+ - wireshark
+
+dev_packages:
+ - gimp
+ - postman
+ - winmerge
+ - ms-reportviewer2015
+ - sql2014.clrtypes
+ - sql-server-management-studio
+# - jdk11
+# - sql-server-2017
+# - mssqlserver2012expressadv
+# - visualstudioexpress2013windowsdesktop
+
+
+basic_folders:
+ - E:\00 CORREO
+ - E:\01 DOCUMENTACION
+ - E:\02 PLANTILLAS
+ - E:\03 SOFTWARE
+ - E:\04 DRIVERS
+ - E:\10 OBRAS
+ - E:\20 OFERTAS
+ - E:\30 PEDIDOS
+ - E:\40 MAQUINAS VIRTUALES
+ - E:\50 IMAGENES
+ - E:\60 VARIOS
+ - E:\99 TEMPORAL
+ - C:\INSTALACION_TMP
+

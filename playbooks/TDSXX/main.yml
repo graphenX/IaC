@@ -1,11 +1,17 @@
 ---
 - hosts: TDSXX
 
-  tasks:
+  vars_files:
+    - vars.yml
 
-   - name: Ping hosts
+#  roles:
+#    <-role>
+
+  pre_tasks:
+    -name: Ping hosts
      ansible.windows.win_ping:
 
+  tasks:
    - import_tasks: $ANSIBLE_PATH/tasks/general/ws_update.yml
 
    - import_tasks: $ANSIBLE_PATH/tasks/general/change_hostname.yml
