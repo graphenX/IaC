@@ -1,3 +1,6 @@
+
 - transferir de manera automatizada SSH keys
 - desactivar root login
+
+- desarrollar cambios con diferentes commits, luego comprimir commits en uno y hacer merge
 
